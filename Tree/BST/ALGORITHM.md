@@ -48,6 +48,33 @@ step1: if tree = NULL
               set tree = tree->right
         free temp
 step2 : end
+
+delete(tree, val)
+if tree == NULL
+    write "Value not found in tree"
+    return tree
+
+if val < tree->data
+    tree->left = delete(tree->left, val)
+
+else if val > tree->data
+    tree->right = delete(tree->right, val)
+
+else
+    if tree->left != NULL and tree->right != NULL
+        temp = findLargestNode(tree->left)
+        tree->data = temp->data
+        tree->left = delete(tree->left, temp->data)
+    else
+        temp = tree
+        if tree->left == NULL
+            tree = tree->right
+        else
+            tree = tree->left
+        free(temp)
+
+return tree
+
 ```
 # Height Algorithm in BST
 ```c
