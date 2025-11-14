@@ -16,7 +16,7 @@
 
 void main()
 {
-    int i;
+    int i,n;
     scanf("%d", &n);
     char arr[10];
     fgets(arr, 10, stdin);
